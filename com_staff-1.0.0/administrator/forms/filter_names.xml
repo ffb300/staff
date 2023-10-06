@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" description="COM_STAFF_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="state"
+               type="status"
+               label="COM_STAFF_FILTER_STATE"
+               description="COM_STAFF_FILTER_STATE_DESC"
+               onchange="this.form.submit();"
+        >
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+        </field>
+
+        <field name="position" type="sql" label="COM_STAFF_FORM_LBL_NAME_POSITION" query="SELECT `name` AS `name`, `name` AS val FROM `#__staff_position`" header="COM_STAFF_NAMES_POSITION_FILTER" key_field="name" value_field="val" class="inputbox" onchange="this.form.submit()" translate="true"/>
+<field name="department" type="sql" label="COM_STAFF_FORM_LBL_NAME_DEPARTMENT" query="SELECT `name` AS `name`, `name` AS val FROM `#__staff_department`" header="COM_STAFF_NAMES_DEPARTMENT_FILTER" key_field="name" value_field="val" class="inputbox" onchange="this.form.submit()" translate="true"/>
+
+
+    </fields>
+
+    <fields name="list">
+
+        <field name="fullordering"
+               type="list"
+               label="COM_STAFF_LIST_FULL_ORDERING"
+               description="COM_STAFF_LIST_FULL_ORDERING_DESC"
+               onchange="this.form.submit();"
+               default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.name ASC">COM_STAFF_NAME_ASC</option><option value="a.name DESC">COM_STAFF_NAME_DESC</option><option value="a.email ASC">COM_STAFF_EMAIL_ASC</option><option value="a.email DESC">COM_STAFF_EMAIL_DESC</option><option value="a.telephone ASC">COM_STAFF_TELEPHONE_ASC</option><option value="a.telephone DESC">COM_STAFF_TELEPHONE_DESC</option><option value="a.position ASC">COM_STAFF_POSITION_ASC</option><option value="a.position DESC">COM_STAFF_POSITION_DESC</option><option value="a.department ASC">COM_STAFF_DEPARTMENT_ASC</option><option value="a.department DESC">COM_STAFF_DEPARTMENT_DESC</option>
+
+        </field>
+
+       <field name="limit"
+               type="limitbox"
+               label="COM_STAFF_LIST_LIMIT"
+               description="COM_STAFF_LIST_LIMIT_DESC"
+               class="input-mini"
+               default="25"
+               onchange="this.form.submit();"
+        />
+
+    </fields>
+
+</form>

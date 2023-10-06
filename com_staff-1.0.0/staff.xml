@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>com_staff</name>
+    <creationDate>2023-08-28</creationDate>
+    <copyright>2023 PSP</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Adi Badiozaman</author>
+    <authorEmail>adi@psp.edu.my</authorEmail>
+    <authorUrl>http://www.psp.edu.my</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>COM_STAFF_XML_DESCRIPTION</description>
+    <namespace path="src">Staff\Component\Staff</namespace>
+    
+    <scriptfile>script.php</scriptfile>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <api>
+		<files folder="webservices">
+			<folder>src</folder>
+		</files>
+	</api>
+
+    <files folder="site">
+        <folder>src</folder>
+        <folder>forms</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_staff" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="en-GB">en-GB/com_staff.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_STAFF</menu>
+        <submenu>
+            
+			<menu link="option=com_staff&amp;view=names" view="names" alt="Staff/Names">COM_STAFF_TITLE_NAMES</menu>
+
+			<menu link="option=com_staff&amp;view=positions" view="positions" alt="Staff/Positions">COM_STAFF_TITLE_POSITIONS</menu>
+
+			<menu link="option=com_staff&amp;view=departments" view="departments" alt="Staff/Departments">COM_STAFF_TITLE_DEPARTMENTS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="en-GB">en-GB/com_staff.ini</language>
+			<language tag="en-GB">en-GB/com_staff.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+		<plugin group="finder" plugin="staffnames"/>
+		<plugin group="privacy" plugin="staffnames"/>
+		<plugin group="webservices" plugin="staff"/>
+    </plugins>
+    <modules>
+		<module module="mod_staff" />
+	</modules>
+
+    <updateservers>
+        <server type="extension" priority="1" name="com_staff">https://nocdn.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=NjI2MDEtMjA4NzE1</server>
+    </updateservers>
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

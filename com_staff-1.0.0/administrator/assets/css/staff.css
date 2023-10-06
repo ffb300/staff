@@ -1,0 +1,44 @@
+.icon-48-names {
+      background-image: url(../images/l_names.png);
+      padding-left:60px!important;
+}
+
+.icon-48-name {
+      background-image: url(../images/l_names.png);
+      padding-left:60px!important;
+}
+
+.color-box-names { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+.icon-48-positions {
+      background-image: url(../images/l_positions.png);
+      padding-left:60px!important;
+}
+
+.icon-48-position {
+      background-image: url(../images/l_positions.png);
+      padding-left:60px!important;
+}
+
+.color-box-positions { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+.icon-48-departments {
+      background-image: url(../images/l_departments.png);
+      padding-left:60px!important;
+}
+
+.icon-48-department {
+      background-image: url(../images/l_departments.png);
+      padding-left:60px!important;
+}
+
+.color-box-departments { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+
+
+.other-filters{
+    padding: 0 14px;
+}

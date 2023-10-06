@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" method="upgrade" client="site">
+    <name>MOD_STAFF_NAME</name>
+    <creationDate>2023-08-28</creationDate>
+    <copyright>2023 PSP</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Adi Badiozaman</author>
+    <authorEmail>adi@psp.edu.my</authorEmail>
+    <authorUrl>http://www.psp.edu.my</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>MOD_STAFF_DESCRIPTION</description>
+    <namespace path="src">Staff\Module\Staff</namespace>
+    
+    <files>
+        <filename module="mod_staff">mod_staff.php</filename>
+        <filename>index.html</filename>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="mod_staff" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="language">
+        
+			<language tag="en-GB">en-GB/mod_staff.ini</language>
+			<language tag="en-GB">en-GB/mod_staff.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset 
+                name="content_type" 
+                label="MOD_STAFF_CONTENT_TYPE_TAB_LBL"
+                description="MOD_STAFF_CONTENT_TYPE_TAB_DESC">
+                <field
+                    name="content_type" type="list"
+                    label="MOD_STAFF_CONTENT_TYPE_LBL"
+                    description="MOD_STAFF_CONTENT_TYPE_DESC">
+                    <option value="blank">MOD_STAFF_CUSTOM_CONTENT</option>
+                    <option value="list">MOD_STAFF_LIST</option>
+                    <option value="item">MOD_STAFF_ITEM</option>
+                </field>
+            </fieldset>
+            <fieldset 
+                name="blank_content" 
+                label="MOD_STAFF_CUSTOM_CONTENT_TAB_LBL"
+                description="MOD_STAFF_CUSTOM_CONTENT_TAB_DESC">
+                <field 
+                    name="html_content" type="editor" filter="safehtml"
+                    label="MOD_STAFF_HTML_LBL"
+                    description="MOD_STAFF_HTML_DESC" />
+            </fieldset>
+            <fieldset 
+                name="list_content" 
+                label="MOD_STAFF_LIST_CONTENT_TAB_LBL"
+                description="MOD_STAFF_LIST_CONTENT_TAB_DESC">
+                <field
+                    name="table" type="list"
+                    label="MOD_STAFF_TABLE_LBL"
+                    description="MOD_STAFF_TABLE_DESC">
+                    
+	<option value="#__staff_name">#__staff_name</option>
+	<option value="#__staff_position">#__staff_position</option>
+	<option value="#__staff_department">#__staff_department</option>
+                </field>
+                <field 
+                    name="field" type="groupedlist" default=""
+                    label="MOD_STAFF_FIELD_LBL"
+                    description="MOD_STAFF_FIELD_DESC">
+                    
+	<group label="#__staff_name">
+		<option value="#__staff_name:id">id</option>
+		<option value="#__staff_name:created_by">created_by</option>
+		<option value="#__staff_name:modified_by">modified_by</option>
+		<option value="#__staff_name:name">name</option>
+		<option value="#__staff_name:email">email</option>
+		<option value="#__staff_name:telephone">telephone</option>
+		<option value="#__staff_name:position">position</option>
+		<option value="#__staff_name:department">department</option>
+	</group>
+	<group label="#__staff_position">
+		<option value="#__staff_position:id">id</option>
+		<option value="#__staff_position:created_by">created_by</option>
+		<option value="#__staff_position:modified_by">modified_by</option>
+		<option value="#__staff_position:name">name</option>
+	</group>
+	<group label="#__staff_department">
+		<option value="#__staff_department:id">id</option>
+		<option value="#__staff_department:created_by">created_by</option>
+		<option value="#__staff_department:modified_by">modified_by</option>
+		<option value="#__staff_department:name">name</option>
+	</group>
+                </field>
+                <field 
+                    name="offset" type="text" default="0" filter="uint" class="input-small"
+                    label="MOD_STAFF_OFFSET_LBL"
+                    description="MOD_STAFF_OFFSET_DESC" />
+                <field 
+                    name="limit" type="text" default="10" filter="uint" class="input-small"
+                    label="MOD_STAFF_LIMIT_LBL"
+                    description="MOD_STAFF_LIMIT_DESC" />
+            </fieldset>
+            <fieldset 
+                name="item_content" 
+                label="MOD_STAFF_ITEM_CONTENT_TAB"
+                description="MOD_STAFF_ITEM_CONTENT_TAB_DESC">
+                <field
+                    name="item_table" type="list"
+                    label="MOD_STAFF_TABLE_LBL"
+                    description="MOD_STAFF_TABLE_DESC">
+                    
+	<option value="#__staff_name">#__staff_name</option>
+	<option value="#__staff_position">#__staff_position</option>
+	<option value="#__staff_department">#__staff_department</option>
+                </field>
+                <field 
+                    name="item_id" type="text" filter="uint" class="input-small"
+                    label="MOD_STAFF_ITEM_ID_LBL"
+                    description="MOD_STAFF_ITEM_ID_DESC"
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="com_staff">https://www.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=NjI2MDEtMjA4NzE1</server>
+    </updateservers>
+</extension>
